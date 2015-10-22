@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">ShoppingList</string>
     <string name="action_settings">Settings</string>
+
+    <string-array name="ingredients">
+        <string name="Milk">Milk</string>
+        <string name="Pop">Pop</string>
+        <string name="Beef">Beef</string>
+        <string name="Chicken">Chicken</string>
+    </string-array>
 </resources>
