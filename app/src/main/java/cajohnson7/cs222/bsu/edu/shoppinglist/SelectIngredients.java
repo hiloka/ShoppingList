@@ -8,9 +8,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 public class SelectIngredients extends AppCompatActivity {
-
+   public  static String spinnerString="hi";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,8 +32,41 @@ public class SelectIngredients extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-    }
 
+        String[] ingrediants = { "pop", "chicken", "tacos", "cake"};
+
+        ArrayAdapter<String> stringArrayAdapter=
+                new ArrayAdapter<String>(this,
+                        android.R.layout.simple_spinner_dropdown_item,
+                        ingrediants);
+
+
+        Spinner spinner=
+                (Spinner)findViewById(R.id.spinner);
+        spinner.setAdapter(stringArrayAdapter);
+
+        String itemText = (String) spinner.getSelectedItem();
+        Button changeButton = (Button) findViewById(R.id.button);
+         changeButton.setOnClickListener(new View.OnClickListener() {
+          public void onClick(View v) {
+
+
+
+
+
+
+
+
+
+              System.out.println("hi");
+              TextView myTextView =
+                      (TextView)findViewById(R.id.textView2);
+              myTextView.setText("hi");
+          }
+        });
+
+
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -49,4 +88,6 @@ public class SelectIngredients extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }
