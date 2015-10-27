@@ -1,10 +1,12 @@
 package cajohnson7.cs222.bsu.edu.shoppinglist;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,6 +16,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class SelectIngredients extends AppCompatActivity {
    public  static String spinnerString="hi";
@@ -34,38 +38,47 @@ public class SelectIngredients extends AppCompatActivity {
         });
 
         String[] ingrediants = { "pop", "chicken", "tacos", "cake"};
-
         ArrayAdapter<String> stringArrayAdapter=
                 new ArrayAdapter<String>(this,
                         android.R.layout.simple_spinner_dropdown_item,
                         ingrediants);
-
-
         Spinner spinner=
                 (Spinner)findViewById(R.id.spinner);
         spinner.setAdapter(stringArrayAdapter);
-
-        String itemText = (String) spinner.getSelectedItem();
         Button changeButton = (Button) findViewById(R.id.button);
          changeButton.setOnClickListener(new View.OnClickListener() {
-          public void onClick(View v) {
+                 public void onClick(View v) {
+                     ingredientsList myIngredients= new ingredientsList();
+                     TextView myTextView =
+                             (TextView) findViewById(R.id.textView2);
+                     myTextView.setMovementMethod(new ScrollingMovementMethod());
+                    Spinner getSpinner= (Spinner) findViewById(R.id.spinner);
+                     String getSpinnerValue= (String) getSpinner.getSelectedItem();
+                     String myValues=myTextView.getText().toString();
+                     myValues=myValues+getSpinnerValue.toString()+System.getProperty("line.separator");
+                     if(getSpinnerValue=="tacos"){
+                        // myValues=myValues+"you selected"+myIngredients.getTaco();
+                     }
+                     System.out.println("hi");
+                     System.out.println(myValues);
+                     System.out.println(getSpinnerValue);
+                     myTextView.setText(myValues.toString());
+                 }
+         });
 
-
-
-
-
-
-
-
-
-              System.out.println("hi");
-              TextView myTextView =
-                      (TextView)findViewById(R.id.textView2);
-              myTextView.setText("hi");
-          }
+        Button SubmitIt = (Button) findViewById(R.id.button2);
+        SubmitIt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TextView myTextView =
+                        (TextView) findViewById(R.id.textView2);
+                myTextView.setMovementMethod(new ScrollingMovementMethod());
+                String SubmitValue=myTextView.getText().toString();
+                Intent myIntent = new Intent(SelectIngredients.this, SecondActivity.class);
+                myIntent.putExtra("SubmitValue",SubmitValue);
+                startActivity(myIntent);
+            }
         });
-
-
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -88,6 +101,4 @@ public class SelectIngredients extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-
 }
