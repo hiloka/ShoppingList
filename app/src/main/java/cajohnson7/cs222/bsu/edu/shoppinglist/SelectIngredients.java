@@ -45,14 +45,20 @@ public class SelectIngredients extends AppCompatActivity {
         Button changeButton = (Button) findViewById(R.id.button);
          changeButton.setOnClickListener(new View.OnClickListener() {
                  public void onClick(View v) {
+                     StoreIngredients StoredIngredients= new StoreIngredients();
                      TextView myTextView =
                              (TextView) findViewById(R.id.textView2);
                      myTextView.setMovementMethod(new ScrollingMovementMethod());
                     Spinner getSpinner= (Spinner) findViewById(R.id.spinner);
                      String getSpinnerValue= (String) getSpinner.getSelectedItem();
                      String myValues=myTextView.getText().toString();
-                     myValues=myValues+ getSpinnerValue +System.getProperty("line.separator");
-                     myTextView.setText(myValues);
+                     StoredIngredients.setStoredIngredients(myValues);
+                     StoredIngredients.setSelectedItem(getSpinnerValue);
+                     myTextView.setText(StoredIngredients.returnedCart());
+
+
+
+
                  }
          });
 
