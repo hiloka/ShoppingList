@@ -10,17 +10,14 @@ import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+
 
 public class SelectIngredients extends AppCompatActivity {
-   public  static String spinnerString="hi";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,32 +34,25 @@ public class SelectIngredients extends AppCompatActivity {
             }
         });
 
-        String[] ingrediants = { "pop", "chicken", "tacos", "cake"};
+        String[] ingredients = { "pop", "chicken", "tacos", "cake"};
         ArrayAdapter<String> stringArrayAdapter=
-                new ArrayAdapter<String>(this,
+                new ArrayAdapter<>(this,
                         android.R.layout.simple_spinner_dropdown_item,
-                        ingrediants);
+                        ingredients);
         Spinner spinner=
                 (Spinner)findViewById(R.id.spinner);
         spinner.setAdapter(stringArrayAdapter);
         Button changeButton = (Button) findViewById(R.id.button);
          changeButton.setOnClickListener(new View.OnClickListener() {
                  public void onClick(View v) {
-                     ingredientsList myIngredients= new ingredientsList();
                      TextView myTextView =
                              (TextView) findViewById(R.id.textView2);
                      myTextView.setMovementMethod(new ScrollingMovementMethod());
                     Spinner getSpinner= (Spinner) findViewById(R.id.spinner);
                      String getSpinnerValue= (String) getSpinner.getSelectedItem();
                      String myValues=myTextView.getText().toString();
-                     myValues=myValues+getSpinnerValue.toString()+System.getProperty("line.separator");
-                     if(getSpinnerValue=="tacos"){
-                        // myValues=myValues+"you selected"+myIngredients.getTaco();
-                     }
-                     System.out.println("hi");
-                     System.out.println(myValues);
-                     System.out.println(getSpinnerValue);
-                     myTextView.setText(myValues.toString());
+                     myValues=myValues+ getSpinnerValue +System.getProperty("line.separator");
+                     myTextView.setText(myValues);
                  }
          });
 
