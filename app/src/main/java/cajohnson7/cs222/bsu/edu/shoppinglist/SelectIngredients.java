@@ -70,7 +70,7 @@ public class SelectIngredients extends AppCompatActivity {
                         (TextView) findViewById(R.id.textView2);
                 myTextView.setMovementMethod(new ScrollingMovementMethod());
                 String SubmitValue=myTextView.getText().toString();
-                Intent myIntent = new Intent(SelectIngredients.this, SecondActivity.class);
+                Intent myIntent = new Intent(SelectIngredients.this, IngredientsSelectedView.class);
                 myIntent.putExtra("SubmitValue",SubmitValue);
                 startActivity(myIntent);
             }
