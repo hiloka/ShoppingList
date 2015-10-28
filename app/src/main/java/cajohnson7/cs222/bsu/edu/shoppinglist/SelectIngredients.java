@@ -12,12 +12,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 
 
 public class SelectIngredients extends AppCompatActivity {
+    public static int cartAmount=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,13 +50,16 @@ public class SelectIngredients extends AppCompatActivity {
                      StoreIngredients StoredIngredients= new StoreIngredients();
                      TextView myTextView =
                              (TextView) findViewById(R.id.textView2);
+                     ScrollView myScrollView=(ScrollView) findViewById(R.id.scrollView);
                      myTextView.setMovementMethod(new ScrollingMovementMethod());
+                     myScrollView.scrollTo(0,myTextView.getHeight());
                     Spinner getSpinner= (Spinner) findViewById(R.id.spinner);
                      String getSpinnerValue= (String) getSpinner.getSelectedItem();
                      String myValues=myTextView.getText().toString();
                      StoredIngredients.setStoredIngredients(myValues);
                      StoredIngredients.setSelectedItem(getSpinnerValue);
                      myTextView.setText(StoredIngredients.returnedCart());
+                     cartAmount++;
 
 
 
