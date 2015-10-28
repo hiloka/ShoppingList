@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">ShoppingList</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_second">SecondActivity</string>
+    <string name="title_activity_second">SelectedIngredients</string>
     <string name="Select_Your_Ingredients">Select Your Ingredients</string>
     <string name="Add_To_Cart">add to cart</string>
     <string name="Submit">Submit</string>
