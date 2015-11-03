@@ -16,17 +16,13 @@ import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-
-
 public class SelectIngredients extends AppCompatActivity {
-    public static int cartAmount=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_ingredients);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,7 +43,7 @@ public class SelectIngredients extends AppCompatActivity {
         Button changeButton = (Button) findViewById(R.id.button);
          changeButton.setOnClickListener(new View.OnClickListener() {
                  public void onClick(View v) {
-                     StoreIngredients StoredIngredients= new StoreIngredients();
+                     IngredientsCart StoredIngredients= new IngredientsCart();
                      TextView myTextView =
                              (TextView) findViewById(R.id.textView2);
                      ScrollView myScrollView=(ScrollView) findViewById(R.id.scrollView);
@@ -57,13 +53,8 @@ public class SelectIngredients extends AppCompatActivity {
                      String getSpinnerValue= (String) getSpinner.getSelectedItem();
                      String myValues=myTextView.getText().toString();
                      StoredIngredients.setStoredIngredients(myValues);
-                     StoredIngredients.setSelectedItem(getSpinnerValue);
+                     StoredIngredients.addItemToCart(getSpinnerValue);
                      myTextView.setText(StoredIngredients.returnedCart());
-                     cartAmount++;
-
-
-
-
                  }
          });
 
@@ -90,16 +81,10 @@ public class SelectIngredients extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 }
