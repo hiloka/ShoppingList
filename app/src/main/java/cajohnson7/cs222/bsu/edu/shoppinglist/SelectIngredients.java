@@ -6,15 +6,21 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Layout;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.GridView;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class SelectIngredients extends AppCompatActivity {
     @Override
@@ -40,37 +46,43 @@ public class SelectIngredients extends AppCompatActivity {
         Spinner spinner=
                 (Spinner)findViewById(R.id.spinner);
         spinner.setAdapter(stringArrayAdapter);
-        Button changeButton = (Button) findViewById(R.id.button);
-         changeButton.setOnClickListener(new View.OnClickListener() {
-                 public void onClick(View v) {
-                     IngredientsCart StoredIngredients= new IngredientsCart();
-                     TextView myTextView =
-                             (TextView) findViewById(R.id.textView2);
-                     ScrollView myScrollView=(ScrollView) findViewById(R.id.scrollView);
-                     myTextView.setMovementMethod(new ScrollingMovementMethod());
-                     myScrollView.scrollTo(0,myTextView.getHeight());
-                    Spinner getSpinner= (Spinner) findViewById(R.id.spinner);
-                     String getSpinnerValue= (String) getSpinner.getSelectedItem();
-                     String myValues=myTextView.getText().toString();
-                     StoredIngredients.setStoredIngredients(myValues);
-                     StoredIngredients.addItemToCart(getSpinnerValue);
-                     myTextView.setText(StoredIngredients.returnedCart());
-                 }
-         });
+        //Button changeButton = (Button) findViewById(R.id.button);
+       // Button pratice = (Button) findViewById(R.id.button4);
+        //pratice.setOnClickListener(new myListener());
+        //Button changeButton = (Button) findViewById(R.id.button);
+        //changeButton.setOnClickListener((View.OnClickListener) this);
+        RelativeLayout myLayout= (RelativeLayout) findViewById(R.id.myFrame);
+        myListener2 listening = new myListener2();
+        listening.setLayOut(myLayout);
+        Button changeButton = (Button) findViewById(R.id.button4);
+        changeButton.setOnClickListener(listening);
+        //myLayout.setOnClickListener(new myListener());
+        Button changeButton2 = (Button) findViewById(R.id.button);
+        changeButton2.setOnClickListener(listening);
+        Button submitIt = (Button)findViewById(R.id.button2);
+        submitIt.setOnClickListener(new View.OnClickListener() {
 
-        Button SubmitIt = (Button) findViewById(R.id.button2);
-        SubmitIt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 TextView myTextView =
                         (TextView) findViewById(R.id.textView2);
                 myTextView.setMovementMethod(new ScrollingMovementMethod());
-                String SubmitValue=myTextView.getText().toString();
+                String SubmitValue = myTextView.getText().toString();
                 Intent myIntent = new Intent(SelectIngredients.this, IngredientsSelectedView.class);
-                myIntent.putExtra("SubmitValue",SubmitValue);
+                myIntent.putExtra("SubmitValue", SubmitValue);
                 startActivity(myIntent);
+
+
+
             }
         });
+
+
+
+
+
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -87,4 +99,157 @@ public class SelectIngredients extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    public String onClick2()  {
+        ArrayList myArray = new ArrayList();
+        System.out.println("hi");
+        String output="Hi";
+        System.out.println("this is the size"+myArray.size());
+        return output;
+    }
+
+
 }
+
+class arrayClass{
+
+    public void inputs(String input){
+
+        System.out.println("hi");
+    }
+
+    public String outputs(){
+        return "hi";
+    }
+
+
+}
+class myListener implements View.OnClickListener{
+    ArrayList myArray = new ArrayList();
+
+
+
+    @Override
+    public void onClick(View v) {
+        System.out.println("hi"+v.getId());
+        System.out.println("button4" + v.findViewById(R.id.button4).getId());
+        Button changeButton = (Button) v.findViewById(R.id.button4);
+
+
+
+       // Button changeButton = (Button) v.findViewById(R.id.button4);
+
+        //Button changeButton2 = (Button) v.findViewById(R.id.button4);
+        //changeButton2.setOnClickListener(this);
+
+
+        System.out.println("change button"+changeButton.getId());
+        if(v.findViewById(R.id.button4).isPressed()){
+            //v.findViewById(R.id.button4).isPressed()
+            myArray.add("hi");
+            System.out.println(myArray.size());
+            TextView myTextView =
+                    (TextView)v.findViewById(R.id.textView2);//changed from textView 4 qand id button changed from button 4
+            Integer arraySize = myArray.size();
+
+
+
+            System.out.println(myArray.size());
+
+
+
+            myTextView.setText(arraySize.toString());
+            System.out.println(myTextView.getId());
+        }
+        else if(v.findViewById(R.id.button).isPressed()){
+            System.out.println("it works");
+            myArray.remove(0);
+
+
+            TextView myTextView =
+                    (TextView)v.findViewById(R.id.textView2);//changed from textView 4 qand id button changed from button 4
+            Integer arraySize=myArray.size();
+
+
+            ScrollView myScrollView = (ScrollView) v.findViewById(R.id.scrollView);
+            myTextView.setMovementMethod(new ScrollingMovementMethod());
+            myScrollView.scrollTo(0, myTextView.getHeight());
+            myTextView.setText(arraySize.toString());
+
+
+
+
+        }
+        else{
+            TextView myTextView =
+                    (TextView)v.findViewById(R.id.textView2);
+            //myTextView.setText("it works");
+            System.out.println("clicked");
+
+        }
+    }
+}
+
+class myListener2 implements View.OnClickListener {
+    ArrayList myArray = new ArrayList();
+    RelativeLayout myLayout;
+
+    public String getList(){
+        String list="its working";
+        return list;
+    }
+
+    public void setLayOut(RelativeLayout input){
+        this.myLayout=input;
+        System.out.println("added layout");
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v.getId()==R.id.button){
+            System.out.println("button4");
+
+            Spinner getSpinner = (Spinner) this.myLayout.findViewById(R.id.spinner);
+            String getSpinnerValue = (String) getSpinner.getSelectedItem();
+            myArray.add(getSpinnerValue);
+            System.out.println(getSpinnerValue);
+            TextView myTextView =
+                    (TextView)this.myLayout.findViewById(R.id.textView2);
+
+            TextView myTextView2 =
+                    (TextView)this.myLayout.findViewById(R.id.textView4);
+
+            Integer arraySize=myArray.size();
+            myTextView.setText(arraySize.toString());
+            myTextView2.setText("you have "+arraySize.toString()+" items in the cart");
+
+        }
+        else if (v.getId()==R.id.button4){
+            System.out.println("button");
+            myArray.remove(0);
+
+            TextView myTextView =
+                    (TextView)this.myLayout.findViewById(R.id.textView2);
+
+            TextView myTextView2 =
+                    (TextView)this.myLayout.findViewById(R.id.textView4);
+
+            Integer arraySize=myArray.size();
+            myTextView.setText(arraySize.toString());
+            myTextView2.setText("you have "+arraySize.toString()+" items in the cart");
+        }
+
+        else if(v.getId()==R.id.button2){
+
+
+
+
+        }
+        else{
+            System.out.println("no button");
+        }
+    }
+}
+
+
+
