@@ -72,17 +72,8 @@ public class SelectIngredients extends AppCompatActivity {
                 Intent myIntent = new Intent(SelectIngredients.this, IngredientsSelectedView.class);
                 myIntent.putExtra("SubmitValue", SubmitValue);
                 startActivity(myIntent);
-
-
-
             }
         });
-
-
-
-
-
-
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -90,7 +81,6 @@ public class SelectIngredients extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_add_ingredients, menu);
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -99,7 +89,6 @@ public class SelectIngredients extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
     public String onClick2()  {
         ArrayList myArray = new ArrayList();
         System.out.println("hi");
@@ -107,89 +96,7 @@ public class SelectIngredients extends AppCompatActivity {
         System.out.println("this is the size"+myArray.size());
         return output;
     }
-
-
 }
-
-class arrayClass{
-
-    public void inputs(String input){
-
-        System.out.println("hi");
-    }
-
-    public String outputs(){
-        return "hi";
-    }
-
-
-}
-class myListener implements View.OnClickListener{
-    ArrayList myArray = new ArrayList();
-
-
-
-    @Override
-    public void onClick(View v) {
-        System.out.println("hi"+v.getId());
-        System.out.println("button4" + v.findViewById(R.id.button4).getId());
-        Button changeButton = (Button) v.findViewById(R.id.button4);
-
-
-
-       // Button changeButton = (Button) v.findViewById(R.id.button4);
-
-        //Button changeButton2 = (Button) v.findViewById(R.id.button4);
-        //changeButton2.setOnClickListener(this);
-
-
-        System.out.println("change button"+changeButton.getId());
-        if(v.findViewById(R.id.button4).isPressed()){
-            //v.findViewById(R.id.button4).isPressed()
-            myArray.add("hi");
-            System.out.println(myArray.size());
-            TextView myTextView =
-                    (TextView)v.findViewById(R.id.textView2);//changed from textView 4 qand id button changed from button 4
-            Integer arraySize = myArray.size();
-
-
-
-            System.out.println(myArray.size());
-
-
-
-            myTextView.setText(arraySize.toString());
-            System.out.println(myTextView.getId());
-        }
-        else if(v.findViewById(R.id.button).isPressed()){
-            System.out.println("it works");
-            myArray.remove(0);
-
-
-            TextView myTextView =
-                    (TextView)v.findViewById(R.id.textView2);//changed from textView 4 qand id button changed from button 4
-            Integer arraySize=myArray.size();
-
-
-            ScrollView myScrollView = (ScrollView) v.findViewById(R.id.scrollView);
-            myTextView.setMovementMethod(new ScrollingMovementMethod());
-            myScrollView.scrollTo(0, myTextView.getHeight());
-            myTextView.setText(arraySize.toString());
-
-
-
-
-        }
-        else{
-            TextView myTextView =
-                    (TextView)v.findViewById(R.id.textView2);
-            //myTextView.setText("it works");
-            System.out.println("clicked");
-
-        }
-    }
-}
-
 class myListener2 implements View.OnClickListener {
     ArrayList myArray = new ArrayList();
     RelativeLayout myLayout;
