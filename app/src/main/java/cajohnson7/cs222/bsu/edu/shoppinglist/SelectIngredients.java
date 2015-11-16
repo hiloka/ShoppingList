@@ -1,19 +1,13 @@
 package cajohnson7.cs222.bsu.edu.shoppinglist;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.text.Layout;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.GridView;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.Spinner;
@@ -25,7 +19,6 @@ public class SelectIngredients extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_ingredients);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         String[] ingredients = { "pop", "chicken", "tacos", "cake"};
         ArrayAdapter<String> stringArrayAdapter=
                 new ArrayAdapter<>(this,
@@ -34,17 +27,11 @@ public class SelectIngredients extends AppCompatActivity {
         Spinner spinner=
                 (Spinner)findViewById(R.id.spinner);
         spinner.setAdapter(stringArrayAdapter);
-        //Button changeButton = (Button) findViewById(R.id.button);
-        // Button pratice = (Button) findViewById(R.id.button4);
-        //pratice.setOnClickListener(new myListener());
-        //Button changeButton = (Button) findViewById(R.id.button);
-        //changeButton.setOnClickListener((View.OnClickListener) this);
         RelativeLayout myLayout= (RelativeLayout) findViewById(R.id.myFrame);
         myListener2 listening = new myListener2();
         listening.setLayOut(myLayout);
         Button changeButton = (Button) findViewById(R.id.button4);
         changeButton.setOnClickListener(listening);
-        //myLayout.setOnClickListener(new myListener());
         Button changeButton2 = (Button) findViewById(R.id.button);
         changeButton2.setOnClickListener(listening);
         Button submitIt = (Button)findViewById(R.id.button2);
@@ -63,7 +50,6 @@ public class SelectIngredients extends AppCompatActivity {
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_add_ingredients, menu);
         return true;
     }
@@ -75,23 +61,11 @@ public class SelectIngredients extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-    public String onClick2()  {
-        ArrayList myArray = new ArrayList();
-        System.out.println("hi");
-        String output="Hi";
-        System.out.println("this is the size"+myArray.size());
-        return output;
-    }
 }
 class myListener2 implements View.OnClickListener {
     ArrayList myArray = new ArrayList();
-    //Check my cart name
     IngredientsCart myCart= new IngredientsCart();
     RelativeLayout myLayout;
-    public String getList(){
-        String list="its working";
-        return list;
-    }
     public void setLayOut(RelativeLayout input){
         this.myLayout=input;
         System.out.println("added layout");
@@ -102,41 +76,32 @@ class myListener2 implements View.OnClickListener {
             System.out.println("button4");
             Spinner getSpinner = (Spinner) this.myLayout.findViewById(R.id.spinner);
             String getSpinnerValue = (String) getSpinner.getSelectedItem();
-            //myArray.add(getSpinnerValue);
             myCart.addItemToCart(getSpinnerValue);
             System.out.println(getSpinnerValue);
             TextView myTextView =
                     (TextView)this.myLayout.findViewById(R.id.textView2);
             TextView myTextView2 =
                     (TextView)this.myLayout.findViewById(R.id.textView4);
-            //// might be dry violation
             ScrollView myScrollView = (ScrollView) this.myLayout.findViewById(R.id.scrollView);
             myTextView.setMovementMethod(new ScrollingMovementMethod());
             myScrollView.scrollTo(0, myTextView.getHeight());
-
-
-            Integer arraySize=myArray.size();
-         myTextView.setText(myCart.returnedCart().toString());
+         myTextView.setText(myCart.returnedCart());
             myTextView2.setText("you have "+myCart.cartSize()+" items in the cart");
         }
         else if (v.getId()==R.id.button4){
             System.out.println("button");
-            //myArray.remove(0);
             myCart.removeItemFromCart();
             TextView myTextView =
                     (TextView)this.myLayout.findViewById(R.id.textView2);
             TextView myTextView2 =
                     (TextView)this.myLayout.findViewById(R.id.textView4);
-            Integer arraySize=myArray.size();
             myTextView.setText(myCart.returnedCart());
             myTextView2.setText("you have "+myCart.cartSize()+" items in the cart");
-            //
             ScrollView myScrollView = (ScrollView) this.myLayout.findViewById(R.id.scrollView);
             myTextView.setMovementMethod(new ScrollingMovementMethod());
             myScrollView.scrollTo(0, myTextView.getHeight());
         }
         else if(v.getId()==R.id.button2){
-
         }
         else{
             System.out.println("no button");

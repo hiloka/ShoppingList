@@ -26,7 +26,6 @@ public class IngredientsSelectedView extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if(extras.get("SubmitValue")!=null) {
             String myShoppingList;
-            //noinspection ConstantConditions
             myShoppingList = extras.get("SubmitValue").toString();
             myTextView.setText(myShoppingList);
         }
