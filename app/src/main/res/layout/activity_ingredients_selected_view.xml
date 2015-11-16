@@ -17,6 +17,6 @@
 
     <include layout="@layout/content_ingredients_selected_view" />
 
-   
+
 
 </android.support.design.widget.CoordinatorLayout>

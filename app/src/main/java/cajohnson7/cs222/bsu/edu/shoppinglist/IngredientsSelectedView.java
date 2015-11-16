@@ -18,14 +18,6 @@ public class IngredientsSelectedView extends AppCompatActivity {
         setContentView(R.layout.activity_ingredients_selected_view);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
         TextView myTextView;
         myTextView = (TextView) findViewById(R.id.textView3);
         int viewBottom=myTextView.getBottom();
