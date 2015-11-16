@@ -26,15 +26,6 @@ public class SelectIngredients extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_ingredients);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
         String[] ingredients = { "pop", "chicken", "tacos", "cake"};
         ArrayAdapter<String> stringArrayAdapter=
                 new ArrayAdapter<>(this,
@@ -118,6 +109,12 @@ class myListener2 implements View.OnClickListener {
                     (TextView)this.myLayout.findViewById(R.id.textView2);
             TextView myTextView2 =
                     (TextView)this.myLayout.findViewById(R.id.textView4);
+            //// might be dry violation
+            ScrollView myScrollView = (ScrollView) this.myLayout.findViewById(R.id.scrollView);
+            myTextView.setMovementMethod(new ScrollingMovementMethod());
+            myScrollView.scrollTo(0, myTextView.getHeight());
+
+
             Integer arraySize=myArray.size();
          myTextView.setText(myCart.returnedCart().toString());
             myTextView2.setText("you have "+myCart.cartSize()+" items in the cart");
@@ -133,6 +130,10 @@ class myListener2 implements View.OnClickListener {
             Integer arraySize=myArray.size();
             myTextView.setText(myCart.returnedCart());
             myTextView2.setText("you have "+myCart.cartSize()+" items in the cart");
+            //
+            ScrollView myScrollView = (ScrollView) this.myLayout.findViewById(R.id.scrollView);
+            myTextView.setMovementMethod(new ScrollingMovementMethod());
+            myScrollView.scrollTo(0, myTextView.getHeight());
         }
         else if(v.getId()==R.id.button2){
 
