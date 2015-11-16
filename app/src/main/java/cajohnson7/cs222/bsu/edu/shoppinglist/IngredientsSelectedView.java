@@ -12,22 +12,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class IngredientsSelectedView extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ingredients_selected_view);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
         TextView myTextView;
         myTextView = (TextView) findViewById(R.id.textView3);
         int viewBottom=myTextView.getBottom();
@@ -36,8 +26,6 @@ public class IngredientsSelectedView extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if(extras.get("SubmitValue")!=null) {
             String myShoppingList;
-
-            //noinspection ConstantConditions
             myShoppingList = extras.get("SubmitValue").toString();
             myTextView.setText(myShoppingList);
         }
@@ -48,7 +36,6 @@ public class IngredientsSelectedView extends AppCompatActivity {
                 startActivity(new Intent(IngredientsSelectedView.this, SelectIngredients.class));
             }
         });
-
     }
-
 }
+

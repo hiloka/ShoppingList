@@ -32,21 +32,19 @@
             android:text="Small Text"
             android:id="@+id/textView4"
             android:layout_gravity="center_horizontal|bottom"
-            android:layout_marginLeft="0dp"
-            android:layout_alignBaseline="@+id/spinner"
-            android:layout_alignBottom="@+id/spinner"
-            android:layout_alignStart="@+id/button2" />
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/button"
+            android:layout_marginTop="64dp" />
 
         <ScrollView
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="150dp"
+            android:layout_height="130dp"
             android:id="@+id/scrollView"
             android:scrollbars = "vertical"
             android:fadeScrollbars="false"
             android:background="#d8d3d3"
             android:layout_gravity="center"
-            android:layout_marginLeft="152dp"
-            android:layout_below="@+id/spinner"
+            android:layout_centerVertical="true"
             android:layout_centerHorizontal="true">
 
             <TextView
@@ -64,9 +62,8 @@
             android:text="@string/Submit"
             android:id="@+id/button2"
             android:layout_gravity="center_horizontal|bottom"
-            android:layout_marginLeft="0dp"
-            android:layout_alignTop="@+id/button4"
-            android:layout_toStartOf="@+id/button4" />
+            android:layout_above="@+id/button4"
+            android:layout_centerHorizontal="true" />
 
         <Button
             android:layout_width="wrap_content"
@@ -74,10 +71,9 @@
             android:text="@string/Add_To_Cart"
             android:id="@+id/button"
             android:layout_gravity="start|bottom"
-            android:layout_marginLeft="0dp"
-            android:layout_alignParentBottom="true"
 
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentBottom="true"
+            android:layout_toStartOf="@+id/button2" />
 
         <Button
             android:layout_width="wrap_content"
@@ -85,21 +81,20 @@
             android:text="Remove last item"
             android:id="@+id/button4"
             android:layout_gravity="end|bottom"
-            android:layout_marginLeft="0dp"
-            android:layout_alignParentBottom="true"
 
-            android:layout_alignParentEnd="true"
-            android:visibility="visible" />
+            android:visibility="visible"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
         <Spinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/spinner"
-            android:layout_marginTop="72dp"
             android:layout_gravity="center_horizontal|top"
+            android:layout_alignTop="@+id/textView4"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="0dp"
-            android:layout_alignParentTop="true" />
+            android:layout_alignParentStart="true" />
 
     </RelativeLayout>
 
