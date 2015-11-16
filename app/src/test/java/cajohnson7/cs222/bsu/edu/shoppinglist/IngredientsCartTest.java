@@ -2,12 +2,16 @@ package cajohnson7.cs222.bsu.edu.shoppinglist;
 
 import junit.framework.Assert;
 
+import org.junit.Before;
 import org.junit.Test;
 
 
 
 public class IngredientsCartTest {
-    // Test remove after commit
+    @Before
+    public void setUp(){
+       // IngredientsCart testIngredients= new IngredientsCart();
+    }
     
     @Test
     public void testSetStoredIngredients() throws Exception {

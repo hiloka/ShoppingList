@@ -94,6 +94,8 @@ public class SelectIngredients extends AppCompatActivity {
 }
 class myListener2 implements View.OnClickListener {
     ArrayList myArray = new ArrayList();
+    //Check my cart name
+    IngredientsCart myCart= new IngredientsCart();
     RelativeLayout myLayout;
     public String getList(){
         String list="its working";
@@ -109,26 +111,28 @@ class myListener2 implements View.OnClickListener {
             System.out.println("button4");
             Spinner getSpinner = (Spinner) this.myLayout.findViewById(R.id.spinner);
             String getSpinnerValue = (String) getSpinner.getSelectedItem();
-            myArray.add(getSpinnerValue);
+            //myArray.add(getSpinnerValue);
+            myCart.addItemToCart(getSpinnerValue);
             System.out.println(getSpinnerValue);
             TextView myTextView =
                     (TextView)this.myLayout.findViewById(R.id.textView2);
             TextView myTextView2 =
                     (TextView)this.myLayout.findViewById(R.id.textView4);
             Integer arraySize=myArray.size();
-            myTextView.setText(arraySize.toString());
-            myTextView2.setText("you have "+arraySize.toString()+" items in the cart");
+         myTextView.setText(myCart.returnedCart().toString());
+            myTextView2.setText("you have "+myCart.cartSize()+" items in the cart");
         }
         else if (v.getId()==R.id.button4){
             System.out.println("button");
-            myArray.remove(0);
+            //myArray.remove(0);
+            myCart.removeItemFromCart();
             TextView myTextView =
                     (TextView)this.myLayout.findViewById(R.id.textView2);
             TextView myTextView2 =
                     (TextView)this.myLayout.findViewById(R.id.textView4);
             Integer arraySize=myArray.size();
-            myTextView.setText(arraySize.toString());
-            myTextView2.setText("you have "+arraySize.toString()+" items in the cart");
+            myTextView.setText(myCart.returnedCart());
+            myTextView2.setText("you have "+myCart.cartSize()+" items in the cart");
         }
         else if(v.getId()==R.id.button2){
 
