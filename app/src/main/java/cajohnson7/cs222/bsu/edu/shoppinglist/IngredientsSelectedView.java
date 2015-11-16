@@ -31,7 +31,7 @@ public class IngredientsSelectedView extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                startActivity(new Intent(IngredientsSelectedView.this, SelectIngredients.class));
+                startActivity(new Intent(IngredientsSelectedView.this, PickIngredient.class));
             }
         });
     }

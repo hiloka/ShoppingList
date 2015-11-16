@@ -12,11 +12,11 @@ import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class SelectIngredients extends AppCompatActivity {
+public class PickIngredient extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_select_ingredients);
+        setContentView(R.layout.activity_pick_ingredient);
         String[] ingredients = { "pop", "chicken", "tacos", "cake"};
         ArrayAdapter<String> stringArrayAdapter=
                 new ArrayAdapter<>(this,
@@ -40,7 +40,7 @@ public class SelectIngredients extends AppCompatActivity {
                         (TextView) findViewById(R.id.textView2);
                 myTextView.setMovementMethod(new ScrollingMovementMethod());
                 String SubmitValue = myTextView.getText().toString();
-                Intent myIntent = new Intent(SelectIngredients.this, IngredientsSelectedView.class);
+                Intent myIntent = new Intent(PickIngredient.this, IngredientsSelectedView.class);
                 myIntent.putExtra("SubmitValue", SubmitValue);
                 startActivity(myIntent);
             }

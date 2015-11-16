@@ -17,7 +17,7 @@ public class IngredientsCartTest {
     public void testSetStoredIngredients() throws Exception {
         IngredientsCart testIngredients= new IngredientsCart();
         String testString="pop";
-        testIngredients.setStoredIngredients(testString);
+        //testIngredients.setStoredIngredients(testString);
         Assert.assertEquals("pop"+System.getProperty("line.separator"), testIngredients.returnedCart());
     }
 
@@ -33,7 +33,7 @@ public class IngredientsCartTest {
     @Test
     public void testReturnedCart() throws Exception {
             IngredientsCart testIngredients= new IngredientsCart();
-            testIngredients.setStoredIngredients("pop");
+            //testIngredients.setStoredIngredients("pop");
             testIngredients.addItemToCart("cake");
             Assert.assertEquals("popcake"+System.getProperty("line.separator"), testIngredients.returnedCart());
 
