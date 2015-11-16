@@ -23,8 +23,10 @@ public class IngredientsCart {
     }
     public void removeItemFromCart(){
         // added this method so check name
-        Integer ArraySize=this.IngredientsInCart2.size();
-        this.IngredientsInCart2.remove(ArraySize);
+        if(IngredientsInCart2.size()>0){
+            Integer ArraySize=this.IngredientsInCart2.size();
+            this.IngredientsInCart2.remove(ArraySize-1);
+        }
     }
     public Integer cartSize(){
         System.out.println(IngredientsInCart2.size()+"hi");

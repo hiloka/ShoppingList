@@ -124,14 +124,15 @@ class myListener2 implements View.OnClickListener {
         }
         else if (v.getId()==R.id.button4){
             System.out.println("button");
-            myArray.remove(0);
+            //myArray.remove(0);
+            myCart.removeItemFromCart();
             TextView myTextView =
                     (TextView)this.myLayout.findViewById(R.id.textView2);
             TextView myTextView2 =
                     (TextView)this.myLayout.findViewById(R.id.textView4);
             Integer arraySize=myArray.size();
-            myTextView.setText(arraySize.toString());
-            myTextView2.setText("you have "+arraySize.toString()+" items in the cart");
+            myTextView.setText(myCart.returnedCart());
+            myTextView2.setText("you have "+myCart.cartSize()+" items in the cart");
         }
         else if(v.getId()==R.id.button2){
 
