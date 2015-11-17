@@ -12,33 +12,23 @@ public class IngredientsCartTest {
     @Before
     public void setUp(){
         cartOfIngredients = new IngredientsCart();
-
-
     }
-    
     @Test
     public void testSetStoredIngredients() throws Exception {
-        //IngredientsCart testIngredients= new IngredientsCart();
         String testString="pop";
-        //testIngredients.setStoredIngredients(testString);
+        cartOfIngredients.addItemToCart(testString);
         Assert.assertEquals("pop" + System.getProperty("line.separator"), cartOfIngredients.returnedCart());
     }
-
     @Test
     public void testSetSelectedItem() throws Exception {
-        IngredientsCart testIngredients= new IngredientsCart();
         String SelectItem="cake";
-        testIngredients.addItemToCart(SelectItem);
-        Assert.assertEquals("cake"+System.getProperty("line.separator"), testIngredients.returnedCart());
-
+        cartOfIngredients.addItemToCart(SelectItem);
+        Assert.assertEquals("cake" + System.getProperty("line.separator"), cartOfIngredients.returnedCart());
     }
-
     @Test
     public void testReturnedCart() throws Exception {
-            IngredientsCart testIngredients= new IngredientsCart();
-            //testIngredients.setStoredIngredients("pop");
-            testIngredients.addItemToCart("cake");
-            Assert.assertEquals("popcake"+System.getProperty("line.separator"), testIngredients.returnedCart());
-
+        cartOfIngredients.addItemToCart("pop");
+        cartOfIngredients.addItemToCart("cake");
+            Assert.assertEquals("pop" + System.getProperty("line.separator") + "cake" + System.getProperty("line.separator"), cartOfIngredients.returnedCart());
     }
 }
