@@ -17,7 +17,7 @@ public class PickIngredient extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pick_ingredient);
-        String[] ingredients = { "pop", "chicken", "tacos", "cake"};
+        String[] ingredients = { "pop", "chicken", "tacos", "cake", "flour", "meat", "onions"};
         ArrayAdapter<String> stringArrayAdapter=
                 new ArrayAdapter<>(this,
                         android.R.layout.simple_spinner_dropdown_item,
@@ -28,10 +28,10 @@ public class PickIngredient extends AppCompatActivity {
         RelativeLayout myLayout= (RelativeLayout) findViewById(R.id.myFrame);
         ButtonEvent listening = new ButtonEvent();
         listening.setLayOut(myLayout);
-        Button changeButton = (Button) findViewById(R.id.button4);
-        changeButton.setOnClickListener(listening);
-        Button changeButton2 = (Button) findViewById(R.id.button);
-        changeButton2.setOnClickListener(listening);
+        Button addToCart = (Button) findViewById(R.id.button4);
+        addToCart.setOnClickListener(listening);
+        Button removeFromCart = (Button) findViewById(R.id.button);
+        removeFromCart.setOnClickListener(listening);
         Button submitIt = (Button)findViewById(R.id.button2);
         submitIt.setOnClickListener(new View.OnClickListener() {
             @Override

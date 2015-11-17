@@ -8,17 +8,20 @@ import org.junit.Test;
 
 
 public class IngredientsCartTest {
+    private  IngredientsCart cartOfIngredients;
     @Before
     public void setUp(){
-       // IngredientsCart testIngredients= new IngredientsCart();
+        cartOfIngredients = new IngredientsCart();
+
+
     }
     
     @Test
     public void testSetStoredIngredients() throws Exception {
-        IngredientsCart testIngredients= new IngredientsCart();
+        //IngredientsCart testIngredients= new IngredientsCart();
         String testString="pop";
         //testIngredients.setStoredIngredients(testString);
-        Assert.assertEquals("pop"+System.getProperty("line.separator"), testIngredients.returnedCart());
+        Assert.assertEquals("pop" + System.getProperty("line.separator"), cartOfIngredients.returnedCart());
     }
 
     @Test
