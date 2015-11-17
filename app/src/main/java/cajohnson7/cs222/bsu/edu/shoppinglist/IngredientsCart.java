@@ -3,7 +3,6 @@ package cajohnson7.cs222.bsu.edu.shoppinglist;
 import java.util.ArrayList;
 
 public class IngredientsCart {
-    private String ingredientsInCart ="";
     private ArrayList ingredientsArray = new ArrayList();
 
     public void addItemToCart(String input){
@@ -20,9 +19,9 @@ public class IngredientsCart {
 
     }
     public String returnedCart(){
+        String ingredientsInCart ="";
         Integer i = 0;
         Integer s=this.ingredientsArray.size();
-        this.ingredientsInCart ="";
         while(i < s){
             ingredientsInCart = ingredientsInCart +this.ingredientsArray.get(i).toString();
             ingredientsInCart = ingredientsInCart +System.getProperty("line.separator");

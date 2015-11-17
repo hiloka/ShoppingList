@@ -27,7 +27,7 @@ public class IngredientsSelectedView extends AppCompatActivity {
             myShoppingList = extras.get("SubmitValue").toString();
             myTextView.setText(myShoppingList);
         }
-        Button backButton = (Button) findViewById(R.id.button3);
+            Button backButton = (Button) findViewById(R.id.button3);
         backButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
