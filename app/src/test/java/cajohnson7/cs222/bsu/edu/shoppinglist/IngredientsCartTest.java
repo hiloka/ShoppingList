@@ -2,18 +2,26 @@ package cajohnson7.cs222.bsu.edu.shoppinglist;
 
 import junit.framework.Assert;
 
+import org.junit.Before;
 import org.junit.Test;
 
 
 
 public class IngredientsCartTest {
+    private  IngredientsCart cartOfIngredients;
+    @Before
+    public void setUp(){
+        cartOfIngredients = new IngredientsCart();
 
+
+    }
+    
     @Test
     public void testSetStoredIngredients() throws Exception {
-        IngredientsCart testIngredients= new IngredientsCart();
+        //IngredientsCart testIngredients= new IngredientsCart();
         String testString="pop";
-        testIngredients.setStoredIngredients(testString);
-        Assert.assertEquals("pop"+System.getProperty("line.separator"), testIngredients.returnedCart());
+        //testIngredients.setStoredIngredients(testString);
+        Assert.assertEquals("pop" + System.getProperty("line.separator"), cartOfIngredients.returnedCart());
     }
 
     @Test
@@ -28,7 +36,7 @@ public class IngredientsCartTest {
     @Test
     public void testReturnedCart() throws Exception {
             IngredientsCart testIngredients= new IngredientsCart();
-            testIngredients.setStoredIngredients("pop");
+            //testIngredients.setStoredIngredients("pop");
             testIngredients.addItemToCart("cake");
             Assert.assertEquals("popcake"+System.getProperty("line.separator"), testIngredients.returnedCart());
 
