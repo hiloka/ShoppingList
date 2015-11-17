@@ -27,11 +27,6 @@ class ButtonEvent implements View.OnClickListener {
             Spinner getSpinner = (Spinner) this.myLayout.findViewById(R.id.spinner);
             String getSpinnerValue = (String) getSpinner.getSelectedItem();
             myCart.addItemToCart(getSpinnerValue);
-           // ScrollView myScrollView = (ScrollView) this.myLayout.findViewById(R.id.scrollView);
-           // myTextView.setMovementMethod(new ScrollingMovementMethod());
-           // myScrollView.scrollTo(0, myTextView.getHeight());
-           // myTextView.setText(myCart.returnedCart());
-            //myTextView2.setText("you have "+myCart.cartSize()+" items in the cart");
         }
         else if (v.getId()==R.id.button4){
             myCart.removeItemFromCart();
@@ -39,7 +34,6 @@ class ButtonEvent implements View.OnClickListener {
         else{
             System.out.println("no button");
         }
-        System.out.println("hi");
         ScrollView myScrollView = (ScrollView) this.myLayout.findViewById(R.id.scrollView);
         myTextView.setMovementMethod(new ScrollingMovementMethod());
         myScrollView.scrollTo(0, myTextView.getHeight());
