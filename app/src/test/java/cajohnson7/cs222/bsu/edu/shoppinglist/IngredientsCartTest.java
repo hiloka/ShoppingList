@@ -54,8 +54,14 @@ public class IngredientsCartTest {
         Assert.assertEquals("", cartOfIngredients.returnedCart());
     }
     @Test
-    public void testReturnedCartSize() throws Exception {
-        Assert.assertEquals("0", cartOfIngredients.cartSize());
+    public void testReturnedCartSizeEmpty() throws Exception {
+        Assert.assertEquals("0", cartOfIngredients.cartSize().toString());
     }
-    
+    @Test
+    public void testReturnedCartSize() throws Exception {
+        cartOfIngredients.addItemToCart("pop");
+        cartOfIngredients.addItemToCart("cake");
+        Assert.assertEquals("2", cartOfIngredients.cartSize().toString());
+    }
+
 }
