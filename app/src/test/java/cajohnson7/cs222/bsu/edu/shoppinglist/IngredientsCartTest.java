@@ -29,4 +29,29 @@ public class IngredientsCartTest {
         cartOfIngredients.addItemToCart("cake");
             Assert.assertEquals("pop" + System.getProperty("line.separator") + "cake" + System.getProperty("line.separator"), cartOfIngredients.returnedCart());
     }
+    @Test
+    public void testRemoveFromCart() throws Exception {
+        cartOfIngredients.addItemToCart("pop");
+        cartOfIngredients.addItemToCart("cake");
+        cartOfIngredients.removeItemFromCart();
+        Assert.assertEquals("pop" + System.getProperty("line.separator"), cartOfIngredients.returnedCart());
+    }
+    @Test
+    public void testRemoveFromCartMultiple() throws Exception {
+        cartOfIngredients.addItemToCart("pop");
+        cartOfIngredients.addItemToCart("cake");
+        cartOfIngredients.removeItemFromCart();
+        cartOfIngredients.removeItemFromCart();
+        Assert.assertEquals("", cartOfIngredients.returnedCart());
+    }
+    @Test
+    public void testRemoveFromEmptyCart() throws Exception {
+        cartOfIngredients.addItemToCart("pop");
+        cartOfIngredients.addItemToCart("cake");
+        cartOfIngredients.removeItemFromCart();
+        cartOfIngredients.removeItemFromCart();
+        cartOfIngredients.removeItemFromCart();
+        Assert.assertEquals("", cartOfIngredients.returnedCart());
+    }
+
 }
