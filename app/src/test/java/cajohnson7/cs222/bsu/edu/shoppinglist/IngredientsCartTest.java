@@ -2,35 +2,66 @@ package cajohnson7.cs222.bsu.edu.shoppinglist;
 
 import junit.framework.Assert;
 
+import org.junit.Before;
 import org.junit.Test;
 
-
-
 public class IngredientsCartTest {
-
+    private  IngredientsCart cartOfIngredients;
+    @Before
+    public void setUp(){
+        cartOfIngredients = new IngredientsCart();
+    }
     @Test
     public void testSetStoredIngredients() throws Exception {
-        IngredientsCart testIngredients= new IngredientsCart();
         String testString="pop";
-        testIngredients.setStoredIngredients(testString);
-        Assert.assertEquals("pop"+System.getProperty("line.separator"), testIngredients.returnedCart());
+        cartOfIngredients.addItemToCart(testString);
+        Assert.assertEquals("pop" + System.getProperty("line.separator"), cartOfIngredients.returnedCart());
     }
-
     @Test
     public void testSetSelectedItem() throws Exception {
-        IngredientsCart testIngredients= new IngredientsCart();
         String SelectItem="cake";
-        testIngredients.addItemToCart(SelectItem);
-        Assert.assertEquals("cake"+System.getProperty("line.separator"), testIngredients.returnedCart());
-
+        cartOfIngredients.addItemToCart(SelectItem);
+        Assert.assertEquals("cake" + System.getProperty("line.separator"), cartOfIngredients.returnedCart());
     }
-
     @Test
     public void testReturnedCart() throws Exception {
-            IngredientsCart testIngredients= new IngredientsCart();
-            testIngredients.setStoredIngredients("pop");
-            testIngredients.addItemToCart("cake");
-            Assert.assertEquals("popcake"+System.getProperty("line.separator"), testIngredients.returnedCart());
-
+        cartOfIngredients.addItemToCart("pop");
+        cartOfIngredients.addItemToCart("cake");
+            Assert.assertEquals("pop" + System.getProperty("line.separator") + "cake" + System.getProperty("line.separator"), cartOfIngredients.returnedCart());
     }
+    @Test
+    public void testRemoveFromCart() throws Exception {
+        cartOfIngredients.addItemToCart("pop");
+        cartOfIngredients.addItemToCart("cake");
+        cartOfIngredients.removeItemFromCart();
+        Assert.assertEquals("pop" + System.getProperty("line.separator"), cartOfIngredients.returnedCart());
+    }
+    @Test
+    public void testRemoveFromCartMultiple() throws Exception {
+        cartOfIngredients.addItemToCart("pop");
+        cartOfIngredients.addItemToCart("cake");
+        cartOfIngredients.removeItemFromCart();
+        cartOfIngredients.removeItemFromCart();
+        Assert.assertEquals("", cartOfIngredients.returnedCart());
+    }
+    @Test
+    public void testRemoveFromEmptyCart() throws Exception {
+        cartOfIngredients.addItemToCart("pop");
+        cartOfIngredients.addItemToCart("cake");
+        cartOfIngredients.removeItemFromCart();
+        cartOfIngredients.removeItemFromCart();
+        cartOfIngredients.removeItemFromCart();
+        Assert.assertEquals("", cartOfIngredients.returnedCart());
+    }
+    @Test
+    public void testReturnedCartSizeEmpty() throws Exception {
+        Assert.assertEquals("0", cartOfIngredients.cartSize().toString());
+    }
+    @Test
+    public void testReturnedCartSize() throws Exception {
+        cartOfIngredients.addItemToCart("pop");
+        cartOfIngredients.addItemToCart("cake");
+        Assert.assertEquals("2", cartOfIngredients.cartSize().toString());
+    }
+
 }

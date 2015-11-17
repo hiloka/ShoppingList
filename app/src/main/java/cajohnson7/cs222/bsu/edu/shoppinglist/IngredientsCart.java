@@ -1,20 +1,33 @@
 package cajohnson7.cs222.bsu.edu.shoppinglist;
 
+import java.util.ArrayList;
 
 public class IngredientsCart {
-    private String IngredientsInCart ="";
-    private String newIngredients="";
-
-    public void setStoredIngredients(String input){
-            this.IngredientsInCart = input;
-    }
+    private String ingredientsInCart ="";
+    private ArrayList ingredientsArray = new ArrayList();
 
     public void addItemToCart(String input){
-
-        newIngredients=input;
+        this.ingredientsArray.add(input);
     }
+    public void removeItemFromCart(){
+        if(ingredientsArray.size()>0){
+            Integer ArraySize=this.ingredientsArray.size();
+            this.ingredientsArray.remove(ArraySize-1);
+        }
+    }
+    public Integer cartSize(){
+        return this.ingredientsArray.size();
 
+    }
     public String returnedCart(){
-        return IngredientsInCart +newIngredients+System.getProperty("line.separator");
+        Integer i = 0;
+        Integer s=this.ingredientsArray.size();
+        this.ingredientsInCart ="";
+        while(i < s){
+            ingredientsInCart = ingredientsInCart +this.ingredientsArray.get(i).toString();
+            ingredientsInCart = ingredientsInCart +System.getProperty("line.separator");
+            i++;
+        }
+        return ingredientsInCart;
     }
 }
