@@ -16,7 +16,7 @@ public class PickIngredient extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pick_ingredient);
+        setContentView(R.layout.activity_ppick_ingredient);
         String[] ingredients = { "pop", "chicken", "tacos", "cake", "flour", "meat", "onions"};
         ArrayAdapter<String> stringArrayAdapter=
                 new ArrayAdapter<>(this,
