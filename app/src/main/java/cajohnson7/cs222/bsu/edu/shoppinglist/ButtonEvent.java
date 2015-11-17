@@ -11,7 +11,6 @@ class ButtonEvent implements View.OnClickListener {
     private IngredientsCart myCart= new IngredientsCart();
     private  RelativeLayout myLayout;
 
-
     public void setLayOut(RelativeLayout input){
         this.myLayout=input;
     }
