@@ -7,6 +7,9 @@
     <string name="Submit">Submit</string>
     <string name="Hello">Hello</string>
     <string name="Go_Back">Restart</string>
+    <string name="removeLastItem">Remove last item</string>
+    <string name="NoIngredientsSelected">No ingredients have been selected</string>
+    <string name="ingredientsCatergory">pop</string>
 
 
 </resources>
