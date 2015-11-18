@@ -45,7 +45,7 @@ public class IngredientsCartTest {
         Assert.assertEquals("", cartOfIngredients.returnedCart());
     }
     @Test
-    public void testRemoveFromEmptyCart() throws Exception {
+    public void testRemoveFromCartMoreThanInCart() throws Exception {
         cartOfIngredients.addItemToCart("pop");
         cartOfIngredients.addItemToCart("cake");
         cartOfIngredients.removeItemFromCart();
@@ -62,6 +62,13 @@ public class IngredientsCartTest {
         cartOfIngredients.addItemToCart("pop");
         cartOfIngredients.addItemToCart("cake");
         Assert.assertEquals("2", cartOfIngredients.cartSize().toString());
+    }
+    @Test
+    public void testReturnedCartSizeWithRemoval() throws Exception {
+        cartOfIngredients.addItemToCart("pop");
+        cartOfIngredients.addItemToCart("cake");
+        cartOfIngredients.removeItemFromCart();
+        Assert.assertEquals("1", cartOfIngredients.cartSize().toString());
     }
 
 }
