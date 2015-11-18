@@ -8,7 +8,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 class ButtonEvent implements View.OnClickListener {
-    private IngredientsCart myCart= new IngredientsCart();
+    private IngredientsCart shoppingCart = new IngredientsCart();
     private  RelativeLayout myLayout;
     
     public void setLayOut(RelativeLayout input){
@@ -16,27 +16,27 @@ class ButtonEvent implements View.OnClickListener {
     }
     @Override
     public void onClick(View v) {
-
-        TextView myTextView =
+        TextView itemsInCart =
                 (TextView)this.myLayout.findViewById(R.id.textView2);
-        TextView myTextView2 =
+        TextView amountOfItems =
                 (TextView)this.myLayout.findViewById(R.id.textView4);
         if(v.getId()==R.id.button){
-            Spinner getSpinner = (Spinner) this.myLayout.findViewById(R.id.spinner);
-            String getSpinnerValue = (String) getSpinner.getSelectedItem();
-            myCart.addItemToCart(getSpinnerValue);
+            Spinner ingredientsSpinner = (Spinner) this.myLayout.findViewById(R.id.spinner);
+            String getSpinnerValue = (String) ingredientsSpinner.getSelectedItem();
+            shoppingCart.addItemToCart(getSpinnerValue);
         }
         else if (v.getId()==R.id.button4){
-            myCart.removeItemFromCart();
+            shoppingCart.removeItemFromCart();
         }
         else{
-            System.out.println("no button");
+            itemsInCart.setText("no button");
         }
         ScrollView myScrollView = (ScrollView) this.myLayout.findViewById(R.id.scrollView);
-        myTextView.setMovementMethod(new ScrollingMovementMethod());
-        myScrollView.scrollTo(0, myTextView.getHeight());
-        myTextView.setText(myCart.returnedCart());
-        myTextView2.setText("you have "+myCart.cartSize()+" items in the cart");
+        itemsInCart.setMovementMethod(new ScrollingMovementMethod());
+        myScrollView.scrollTo(0, itemsInCart.getHeight());
+        itemsInCart.setText(shoppingCart.returnedCart());
+        amountOfItems.setText("you have " + shoppingCart.cartSize() + " items in the cart");
     }
+
 }
 

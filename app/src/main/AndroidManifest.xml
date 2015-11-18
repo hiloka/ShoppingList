@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".IngredientsSelectedView"
+            android:name=".IngredientSelecter"
             android:label="@string/title_activity_second"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>

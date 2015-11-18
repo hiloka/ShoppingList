@@ -40,17 +40,19 @@ public class PickIngredient extends AppCompatActivity {
                         (TextView) findViewById(R.id.textView2);
                 myTextView.setMovementMethod(new ScrollingMovementMethod());
                 String SubmitValue = myTextView.getText().toString();
-                Intent myIntent = new Intent(PickIngredient.this, IngredientsSelectedView.class);
+                Intent myIntent = new Intent(PickIngredient.this, IngredientSelecter.class);
                 myIntent.putExtra("SubmitValue", SubmitValue);
                 startActivity(myIntent);
             }
         });
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_add_ingredients, menu);
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
