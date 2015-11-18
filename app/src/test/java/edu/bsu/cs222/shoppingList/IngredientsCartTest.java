@@ -1,10 +1,8 @@
-package cajohnson7.cs222.bsu.edu.shoppinglist;
+package edu.bsu.cs222.shoppingList;
 
 import junit.framework.Assert;
-
 import org.junit.Before;
 import org.junit.Test;
-
 import edu.bsu.cs222.shoppingList.IngredientsCart;
 
 public class IngredientsCartTest {
