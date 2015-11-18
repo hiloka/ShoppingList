@@ -17,7 +17,7 @@ public class PickIngredient extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pick_ingredient);
-        String[] ingredients = { "pop", "chicken", "tacos", "cake", "flour", "meat", "onions"};
+        String[] ingredients = { getString(R.string.ingredientsCatergory)};
         ArrayAdapter<String> stringArrayAdapter=
                 new ArrayAdapter<>(this,
                         android.R.layout.simple_spinner_dropdown_item,
@@ -40,7 +40,7 @@ public class PickIngredient extends AppCompatActivity {
                         (TextView) findViewById(R.id.textView2);
                 myTextView.setMovementMethod(new ScrollingMovementMethod());
                 String SubmitValue = myTextView.getText().toString();
-                Intent myIntent = new Intent(PickIngredient.this, IngredientSelecter.class);
+                Intent myIntent = new Intent(PickIngredient.this, IngredientSelector.class);
                 myIntent.putExtra("SubmitValue", SubmitValue);
                 startActivity(myIntent);
             }

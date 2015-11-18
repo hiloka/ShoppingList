@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class IngredientSelecter extends AppCompatActivity {
+public class IngredientSelector extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +31,7 @@ public class IngredientSelecter extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                startActivity(new Intent(IngredientSelecter.this, PickIngredient.class));
+                startActivity(new Intent(IngredientSelector.this, PickIngredient.class));
             }
         });
     }

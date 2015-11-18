@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Small Text"
+            android:text="@string/NoIngredientsSelected"
             android:id="@+id/textView4"
             android:layout_gravity="center_horizontal|bottom"
             android:layout_alignParentTop="true"
@@ -78,7 +78,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Remove last item"
+            android:text="@string/removeLastItem"
             android:id="@+id/button4"
             android:layout_gravity="end|bottom"
 
