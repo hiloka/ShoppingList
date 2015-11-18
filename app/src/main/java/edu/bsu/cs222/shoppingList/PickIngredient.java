@@ -1,4 +1,4 @@
-package cajohnson7.cs222.bsu.edu.shoppinglist;
+package edu.bsu.cs222.shoppingList;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,13 +11,14 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import cajohnson7.cs222.bsu.edu.shoppinglist.R;
 
 public class PickIngredient extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pick_ingredient);
-        String[] ingredients = { getString(R.string.ingredientsCatergory)};
+        String[] ingredients = {"pop","soda","meat","onions","milk"};
         ArrayAdapter<String> stringArrayAdapter=
                 new ArrayAdapter<>(this,
                         android.R.layout.simple_spinner_dropdown_item,

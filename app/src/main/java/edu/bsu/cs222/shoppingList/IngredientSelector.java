@@ -1,4 +1,4 @@
-package cajohnson7.cs222.bsu.edu.shoppinglist;
+package edu.bsu.cs222.shoppingList;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import cajohnson7.cs222.bsu.edu.shoppinglist.R;
 
 public class IngredientSelector extends AppCompatActivity {
     @Override

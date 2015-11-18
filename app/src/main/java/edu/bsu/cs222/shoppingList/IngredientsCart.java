@@ -1,4 +1,4 @@
-package cajohnson7.cs222.bsu.edu.shoppinglist;
+package edu.bsu.cs222.shoppingList;
 
 import java.util.ArrayList;
 
