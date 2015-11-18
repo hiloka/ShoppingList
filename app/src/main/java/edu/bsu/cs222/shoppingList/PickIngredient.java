@@ -1,4 +1,4 @@
-package cajohnson7.cs222.bsu.edu.shoppinglist;
+package edu.bsu.cs222.shoppingList;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import cajohnson7.cs222.bsu.edu.shoppinglist.R;
 
 public class PickIngredient extends AppCompatActivity {
     @Override

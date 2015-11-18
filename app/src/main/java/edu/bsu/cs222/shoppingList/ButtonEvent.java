@@ -1,4 +1,4 @@
-package cajohnson7.cs222.bsu.edu.shoppinglist;
+package edu.bsu.cs222.shoppingList;
 
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
@@ -6,6 +6,7 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import cajohnson7.cs222.bsu.edu.shoppinglist.R;
 
 class ButtonEvent implements View.OnClickListener {
     private IngredientsCart shoppingCart = new IngredientsCart();
