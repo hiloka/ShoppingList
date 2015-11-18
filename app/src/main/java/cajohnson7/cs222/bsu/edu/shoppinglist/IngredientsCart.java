@@ -16,8 +16,8 @@ public class IngredientsCart {
     }
     public Integer cartSize(){
         return this.ingredientsArray.size();
-
     }
+
     public String returnedCart(){
         String ingredientsInCart ="";
         Integer i = 0;
