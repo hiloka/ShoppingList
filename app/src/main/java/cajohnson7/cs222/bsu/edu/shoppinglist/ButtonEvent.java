@@ -10,7 +10,7 @@ import android.widget.TextView;
 class ButtonEvent implements View.OnClickListener {
     private IngredientsCart myCart= new IngredientsCart();
     private  RelativeLayout myLayout;
-
+    
     public void setLayOut(RelativeLayout input){
         this.myLayout=input;
     }
@@ -21,7 +21,6 @@ class ButtonEvent implements View.OnClickListener {
                 (TextView)this.myLayout.findViewById(R.id.textView2);
         TextView myTextView2 =
                 (TextView)this.myLayout.findViewById(R.id.textView4);
-
         if(v.getId()==R.id.button){
             Spinner getSpinner = (Spinner) this.myLayout.findViewById(R.id.spinner);
             String getSpinnerValue = (String) getSpinner.getSelectedItem();
