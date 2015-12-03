@@ -69,18 +69,15 @@ class ButtonEvent  implements View.OnClickListener {
     }
     private String[] formatReturn(){
         String AdapterToString=myAdapter.returnShoppingList3().toString();
-        AdapterToString.split(",");
-        AdapterToString.replace("[","");
-        AdapterToString.replace("]", "");
-        AdapterToString.trim();
         System.out.println(AdapterToString+"to string");
+        AdapterToString=AdapterToString.substring(1);
+        AdapterToString=AdapterToString.substring(0,AdapterToString.length()-1);
         return AdapterToString.split(",");
     }
     private ArrayAdapter mainAdapter(){
         ArrayAdapter<String> itemsAdapter =
                 new ArrayAdapter<String>(tempContext, android.R.layout.simple_list_item_1, formatReturn());
         return itemsAdapter;
-
     }
     private Integer getArraySize(){// this replaces the myAdapter.amountInCart() method
         return myAdapter.amountInCart();
