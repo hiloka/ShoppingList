@@ -28,6 +28,10 @@ public class PickIngredient extends AppCompatActivity {
         ingredientSpinner.setAdapter(stringArrayAdapter);
         RelativeLayout myLayout= (RelativeLayout) findViewById(R.id.myFrame);
         ButtonEvent buttonEventListener = new ButtonEvent();
+        ////
+        buttonEventListener.setContext(this);
+
+        ///
         buttonEventListener.setLayOut(myLayout);
         Button addToCartButton = (Button) findViewById(R.id.button4);
         addToCartButton.setOnClickListener(buttonEventListener);
@@ -37,13 +41,14 @@ public class PickIngredient extends AppCompatActivity {
         submitItButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TextView myTextView =
-                        (TextView) findViewById(R.id.textView2);
-                myTextView.setMovementMethod(new ScrollingMovementMethod());
-                String SubmitValue = myTextView.getText().toString();
-                Intent myIntent = new Intent(PickIngredient.this, IngredientSelector.class);
-                myIntent.putExtra("SubmitValue", SubmitValue);
-                startActivity(myIntent);
+                // temp remove all of this
+                //TextView myTextView =
+                       // (TextView) findViewById(R.id.textView2);
+                //myTextView.setMovementMethod(new ScrollingMovementMethod());
+                //String SubmitValue = myTextView.getText().toString();
+                //Intent myIntent = new Intent(PickIngredient.this, IngredientSelector.class);
+                //myIntent.putExtra("SubmitValue", SubmitValue);
+                //startActivity(myIntent);
             }
         });
     }
