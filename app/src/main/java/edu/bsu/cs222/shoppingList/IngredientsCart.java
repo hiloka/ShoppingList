@@ -23,13 +23,14 @@ public class IngredientsCart {
     }
     public void removeItemFromCart(){
         if(ingredientsArray.size()>0){
-            Integer ArraySize=this.ingredientsArray.size();
-            this.ingredientsArray.remove(ArraySize-1);
+            Integer arraySize=this.ingredientsArray.size();//arraySize changed from ArraySize
+            //this.ingredientsArray.remove(ArraySize-1);
+            //Integer ArraySize=this.ingredientsArray.size();
+            String arrayLast= (String) ingredientsArray.get(arraySize-1);
+            myMultiset.remove(arrayLast);
+            this.ingredientsArray.remove(arraySize-1);
         }
         //// this is to test teh remove from multilist
-        Integer ArraySize=this.ingredientsArray.size();
-        String arrayLast= (String) ingredientsArray.get(ArraySize-1);
-        myMultiset.remove(arrayLast);
         //
     }
     public Integer cartSize(){
