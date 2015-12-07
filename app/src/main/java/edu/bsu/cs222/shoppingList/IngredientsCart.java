@@ -20,6 +20,7 @@ public class IngredientsCart {
         System.out.println(myMultiset.entrySet());
         System.out.println("hi" + myMultiset.toString());
         System.out.println("go"+ myMultiset);
+        System.out.println(myMultiset.entrySet().size()+"SIZE OF MULTISET");
     }
     public void removeItemFromCart(){
         if(ingredientsArray.size()>0){

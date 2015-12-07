@@ -11,6 +11,30 @@ public class IngredientsCartTest {
     public void setUp(){
         cartOfIngredients = new IngredientsCart();
     }
+    ///
+    @Test
+    public void testEmptyIngredientsCart() throws Exception{
+        Assert.assertEquals(cartOfIngredients.getIngredientsArray3().isEmpty(),true);
+    }
+    @Test
+    public void addToIngredientsCartTest() throws Exception{
+        cartOfIngredients.addItemToCart("pop");
+        Assert.assertEquals(cartOfIngredients.getIngredientsArray3().contains("pop"),true);
+    }
+    @Test
+    public void addMultipleIngredientsToCartTest() throws Exception{
+        cartOfIngredients.addItemToCart("pop");
+        cartOfIngredients.addItemToCart("pop");
+        Assert.assertEquals(cartOfIngredients.getIngredientsArray3().count("pop"), 2);
+    }
+    @Test
+    public void removeIngredientsFromCartTest() throws Exception {
+        cartOfIngredients.addItemToCart("pop");
+        cartOfIngredients.removeItemFromCart();
+        Assert.assertEquals(cartOfIngredients.getIngredientsArray3().isEmpty(),true);
+    }
+
+    ///
     @Test
     public void testSetStoredIngredients() throws Exception {
         String testString="pop";
