@@ -33,6 +33,20 @@ public class IngredientsCartTest {
         cartOfIngredients.removeItemFromCart();
         Assert.assertEquals(cartOfIngredients.getIngredientsArray3().isEmpty(),true);
     }
+    @Test
+    public void addMoreThanOneItemToCartTest() throws Exception{
+        cartOfIngredients.addItemToCart("pop");
+        cartOfIngredients.addItemToCart("soda");
+        cartOfIngredients.addItemToCart("pop");
+        Assert.assertEquals(cartOfIngredients.getIngredientsArray3().contains("soda"), true);
+    }
+    @Test
+    public void totalAmountOfItemsInCartTest() throws Exception{
+        cartOfIngredients.addItemToCart("pop");
+        cartOfIngredients.addItemToCart("soda");
+        cartOfIngredients.addItemToCart("pop");
+        Assert.assertEquals(cartOfIngredients.getIngredientsArray3().size(),3);
+    }
 
     ///
     @Test
