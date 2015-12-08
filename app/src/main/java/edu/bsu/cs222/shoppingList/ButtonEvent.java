@@ -44,4 +44,3 @@ class ButtonEvent  implements View.OnClickListener {
         this.myLayout=input;
     }
 }
-
