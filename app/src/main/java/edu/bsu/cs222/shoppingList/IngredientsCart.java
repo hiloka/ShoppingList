@@ -10,8 +10,6 @@ import java.util.List;
 public class IngredientsCart {
     private ArrayList ingredientsArray = new ArrayList();
     Multiset<String> myMultiset = HashMultiset.create();
-    private ArrayList multiArray= new ArrayList();
-
 
     public void addItemToCart(String input){
         this.ingredientsArray.add(input);
@@ -31,8 +29,6 @@ public class IngredientsCart {
             myMultiset.remove(arrayLast);
             this.ingredientsArray.remove(arraySize-1);
         }
-        //// this is to test teh remove from multilist
-        //
     }
     public Integer cartSize(){
         return this.ingredientsArray.size();
@@ -50,18 +46,6 @@ public class IngredientsCart {
             i++;
         }
         return ingredientsInCart;
-    }
-    public ArrayList getIngredientsArray(){//added after second iteration so i can see if i use the adapter
-
-        return this.ingredientsArray;
-
-    }
-    public ArrayList getIngredientsArray2(){// temp added to see if i can return a multiset array
-        multiArray.add(myMultiset.entrySet());// might put back after i remove iterator and this makes it so it returns an array with all the values multiple times
-        //return myMultiset;
-        return multiArray;//tem remove
-        //return myMultiset.toArray(String);
-
     }
     public Multiset getIngredientsArray3(){// this one returns a multiset
         return myMultiset;

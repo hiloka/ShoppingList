@@ -21,8 +21,6 @@ import cajohnson7.cs222.bsu.edu.shoppinglist.R;
 class ButtonEvent  implements View.OnClickListener {
     private IngredientsCart shoppingCart = new IngredientsCart();
     private  RelativeLayout myLayout;
-    private AdapterClass myAdapter = new AdapterClass();// temp added to see if adapter works like shopping cart
-    //temp add
     private Context tempContext;
     private AdapterClass4 myAdapter2;
 
@@ -32,7 +30,6 @@ class ButtonEvent  implements View.OnClickListener {
     }
     @Override
     public void onClick(View v) {
-       // this.myLayout.getContext(); this might be a way to get the View context into this class without the getContext method of this class
         ListView itemsInCart =
                 (ListView)this.myLayout.findViewById(R.id.listView2);
         TextView amountOfItems =
@@ -40,53 +37,22 @@ class ButtonEvent  implements View.OnClickListener {
         if(v.getId()==R.id.button){
             Spinner ingredientsSpinner = (Spinner) this.myLayout.findViewById(R.id.spinner);
             String getSpinnerValue = (String) ingredientsSpinner.getSelectedItem();
-            myAdapter.addingToCart(getSpinnerValue);
-            //shoppingCart.addItemToCart(getSpinnerValue);
-            myAdapter2.add("hi");
-            myAdapter2.add("go");
+            myAdapter2.add(getSpinnerValue);
             System.out.println(myAdapter2.cartSize());
         }
         else if (v.getId()==R.id.button4){
-            myAdapter.removeingFromCart();
-            //shoppingCart.removeItemFromCart();
+            myAdapter2.remove();
         }
         else{
             amountOfItems.setText("no button");
         }
-        //ScrollView myScrollView = (ScrollView) this.myLayout.findViewById(R.id.scrollView);
-       // ArrayAdapter<String> itemsAdapter =
-            //    new ArrayAdapter<String>(tempContext, android.R.layout.simple_list_item_1, formatReturn());// myAdapter.returnshoppingList2 used to be returnShoppingList and cast a third piremeter
-        /////diffrent ways to get the adapter
-        //itemsInCart.setAdapter(itemsAdapter);// formatReturn() can be subsituded for myAdapter.returnShoppingList3().toString().split(",")
         itemsInCart.setAdapter(myAdapter2.mainAdapter());//used to be mainAdapter()
-        /////
-        // itemsInCart2.add(myAdapter.setArray());
-        //amountOfItems.setText("you have " + shoppingCart.cartSize() + " items in the cart");
-         amountOfItems.setText("you have " + getArraySize() + " items in the cart");//this might violate MVC but this way i know the items are added
-        //amountOfItems.setText("you have "+ itemsAdapter.getCount()+" items in the cart");
-        ////
-        itemsInCart.setSelection(mainAdapter().getCount() - 1);
-        //
+         amountOfItems.setText("you have " + myAdapter2.cartSize() + " items in the cart");
     }
     public void setContext(Context input){//temp add
         tempContext=input;
         //tempContext=this.myLayout.getContext();
         setUpAdapter();//added for myadapter2
-    }
-    private String[] formatReturn(){
-        String AdapterToString=myAdapter.returnShoppingList3().toString();
-        System.out.println(AdapterToString+"to string");
-        AdapterToString=AdapterToString.substring(1);
-        AdapterToString=AdapterToString.substring(0,AdapterToString.length()-1);
-        return AdapterToString.split(",");
-    }
-    private ArrayAdapter mainAdapter(){
-        ArrayAdapter<String> itemsAdapter =
-                new ArrayAdapter<String>(tempContext, android.R.layout.simple_list_item_1, formatReturn());
-        return itemsAdapter;
-    }
-    private Integer getArraySize(){// this replaces the myAdapter.amountInCart() method
-        return myAdapter.amountInCart();
     }
     private void setUpAdapter(){
         this.myAdapter2 = new AdapterClass4(tempContext,android.R.layout.simple_list_item_1);
