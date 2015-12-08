@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ShoppingList</string>
+    <string name="app_name">Select your ingredients</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_second">SelectedIngredients</string>
     <string name="Select_Your_Ingredients">Select Your Ingredients</string>
@@ -10,6 +10,7 @@
     <string name="removeLastItem">Remove last item</string>
     <string name="NoIngredientsSelected">No ingredients have been selected</string>
     <string name="ingredientsCatergory">pop</string>
+
 
 
 </resources>
