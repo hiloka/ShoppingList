@@ -11,40 +11,69 @@ public class IngredientsCartTest {
     public void setUp(){
         cartOfIngredients = new IngredientsCart();
     }
+    private void addDifferentIngredients(){
+        cartOfIngredients.addItemToCart("pop");
+        cartOfIngredients.addItemToCart("soda");
+    }
+    private void addDifferentAmountOfDifferentIngredients(){
+        cartOfIngredients.addItemToCart("pop");
+        cartOfIngredients.addItemToCart("soda");
+        cartOfIngredients.addItemToCart("pop");
+    }
+    private void addMultiplePopToCart(){
+        cartOfIngredients.addItemToCart("pop");
+        cartOfIngredients.addItemToCart("pop");
+    }
     ///
     @Test
     public void testEmptyIngredientsCart() throws Exception{
-        Assert.assertEquals(cartOfIngredients.getIngredientsArray3().isEmpty(),true);
+        Assert.assertEquals(cartOfIngredients.getIngredientsArray3().isEmpty(), true);
     }
     @Test
-    public void addToIngredientsCartTest() throws Exception{
+    public void testEmptyIngredientsCartSize() throws Exception{
+        Assert.assertEquals(cartOfIngredients.getIngredientsArray3().size(),0);
+    }
+    @Test
+    public void testAddToIngredientsCart() throws Exception{
         cartOfIngredients.addItemToCart("pop");
         Assert.assertEquals(cartOfIngredients.getIngredientsArray3().contains("pop"),true);
     }
     @Test
-    public void addMultipleIngredientsToCartTest() throws Exception{
-        cartOfIngredients.addItemToCart("pop");
-        cartOfIngredients.addItemToCart("pop");
+    public void testAddMultipleIngredientsToCart() throws Exception{
+        addMultiplePopToCart();
         Assert.assertEquals(cartOfIngredients.getIngredientsArray3().count("pop"), 2);
     }
     @Test
-    public void removeIngredientsFromCartTest() throws Exception {
+    public  void testAddDifferentIngredientsToCart1()throws Exception{
+        addDifferentIngredients();
+        Assert.assertEquals(cartOfIngredients.getIngredientsArray3().contains("pop"), true);
+    }
+    @Test
+    public void testAddDifferentIngredientsToCart2() throws Exception{
+        addDifferentIngredients();
+        Assert.assertEquals(cartOfIngredients.getIngredientsArray3().contains("soda"),true);
+    }
+    @Test
+    public void testRemoveIngredientsFromCart() throws Exception {
         cartOfIngredients.addItemToCart("pop");
         cartOfIngredients.removeItemFromCart();
         Assert.assertEquals(cartOfIngredients.getIngredientsArray3().isEmpty(),true);
     }
     @Test
-    public void addMoreThanOneItemToCartTest() throws Exception{
-        cartOfIngredients.addItemToCart("pop");
-        cartOfIngredients.addItemToCart("soda");
-        cartOfIngredients.addItemToCart("pop");
+    public void testRemainingIngredientsAfterRemove() throws Exception{
+        addMultiplePopToCart();
+        cartOfIngredients.removeItemFromCart();
+        Assert.assertEquals(cartOfIngredients.getIngredientsArray3().count("pop"),1);
+
+    }
+    @Test
+    public void testAddMoreThanOneItemToCart() throws Exception{
+        addDifferentAmountOfDifferentIngredients();
         Assert.assertEquals(cartOfIngredients.getIngredientsArray3().contains("soda"), true);
     }
     @Test
-    public void totalAmountOfItemsInCartTest() throws Exception{
-        cartOfIngredients.addItemToCart("pop");
-        cartOfIngredients.addItemToCart("soda");
-        cartOfIngredients.addItemToCart("pop");
+    public void testTotalAmountOfItemsInCart() throws Exception{
+        addDifferentAmountOfDifferentIngredients();
         Assert.assertEquals(cartOfIngredients.getIngredientsArray3().size(),3);
     }
 
