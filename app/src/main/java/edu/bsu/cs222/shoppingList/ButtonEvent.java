@@ -24,6 +24,8 @@ class ButtonEvent  implements View.OnClickListener {
     private AdapterClass myAdapter = new AdapterClass();// temp added to see if adapter works like shopping cart
     //temp add
     private Context tempContext;
+    private AdapterClass4 myAdapter2;
+
     
     public void setLayOut(RelativeLayout input){
         this.myLayout=input;
@@ -40,6 +42,9 @@ class ButtonEvent  implements View.OnClickListener {
             String getSpinnerValue = (String) ingredientsSpinner.getSelectedItem();
             myAdapter.addingToCart(getSpinnerValue);
             //shoppingCart.addItemToCart(getSpinnerValue);
+            myAdapter2.add("hi");
+            myAdapter2.add("go");
+            System.out.println(myAdapter2.cartSize());
         }
         else if (v.getId()==R.id.button4){
             myAdapter.removeingFromCart();
@@ -53,7 +58,7 @@ class ButtonEvent  implements View.OnClickListener {
             //    new ArrayAdapter<String>(tempContext, android.R.layout.simple_list_item_1, formatReturn());// myAdapter.returnshoppingList2 used to be returnShoppingList and cast a third piremeter
         /////diffrent ways to get the adapter
         //itemsInCart.setAdapter(itemsAdapter);// formatReturn() can be subsituded for myAdapter.returnShoppingList3().toString().split(",")
-        itemsInCart.setAdapter(mainAdapter());
+        itemsInCart.setAdapter(myAdapter2.mainAdapter());//used to be mainAdapter()
         /////
         // itemsInCart2.add(myAdapter.setArray());
         //amountOfItems.setText("you have " + shoppingCart.cartSize() + " items in the cart");
@@ -66,6 +71,7 @@ class ButtonEvent  implements View.OnClickListener {
     public void setContext(Context input){//temp add
         tempContext=input;
         //tempContext=this.myLayout.getContext();
+        setUpAdapter();//added for myadapter2
     }
     private String[] formatReturn(){
         String AdapterToString=myAdapter.returnShoppingList3().toString();
@@ -81,6 +87,9 @@ class ButtonEvent  implements View.OnClickListener {
     }
     private Integer getArraySize(){// this replaces the myAdapter.amountInCart() method
         return myAdapter.amountInCart();
+    }
+    private void setUpAdapter(){
+        this.myAdapter2 = new AdapterClass4(tempContext,android.R.layout.simple_list_item_1);
     }
 
 }

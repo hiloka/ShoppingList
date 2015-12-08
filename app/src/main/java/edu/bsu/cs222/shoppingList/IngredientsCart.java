@@ -37,6 +37,9 @@ public class IngredientsCart {
     public Integer cartSize(){
         return this.ingredientsArray.size();
     }
+    public Integer cartSize2(){
+        return this.myMultiset.size();
+    }
     public String returnedCart(){
         String ingredientsInCart ="";
         Integer i = 0;
