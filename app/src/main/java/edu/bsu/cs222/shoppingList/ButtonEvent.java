@@ -28,10 +28,10 @@ class ButtonEvent  implements View.OnClickListener {
             myAdapter.remove(getSpinnerValue);
         }
         else{
-            amountOfItems.setText("no button");
+            amountOfItems.setText(String.format("%s", " no button set"));
         }
         itemsInCart.setAdapter(myAdapter.getAdapter());
-         amountOfItems.setText("you have " +String.valueOf(myAdapter.cartSize()) + " items in the cart");
+         amountOfItems.setText(String.format("%s%s%s", " you have " , myAdapter.cartSize(), " items in the cart "));
     }
     public void setContext(Context input){
         tempContext=input;
