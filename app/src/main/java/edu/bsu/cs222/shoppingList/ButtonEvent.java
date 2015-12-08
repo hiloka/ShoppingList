@@ -13,7 +13,7 @@ class ButtonEvent  implements View.OnClickListener {
     private IngredientsCart shoppingCart = new IngredientsCart();
     private  RelativeLayout myLayout;
     private Context tempContext;
-    private AdapterClass myAdapter;
+    private IngredientsCartFormatter myAdapter;
     @Override
     public void onClick(View v) {
         Spinner ingredientsSpinner = (Spinner) this.myLayout.findViewById(R.id.spinner);
@@ -39,7 +39,7 @@ class ButtonEvent  implements View.OnClickListener {
         setUpAdapter();
     }
     private void setUpAdapter(){
-        this.myAdapter = new AdapterClass(tempContext,android.R.layout.simple_list_item_1);
+        this.myAdapter = new IngredientsCartFormatter(tempContext,android.R.layout.simple_list_item_1);
     }
     public void setLayOut(RelativeLayout input){
         this.myLayout=input;

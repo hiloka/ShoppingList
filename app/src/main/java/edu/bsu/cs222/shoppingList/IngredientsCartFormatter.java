@@ -4,12 +4,12 @@ import android.content.Context;
 import android.widget.ArrayAdapter;
 
 
-public class AdapterClass extends ArrayAdapter {
+public class IngredientsCartFormatter extends ArrayAdapter {
     private Context myContext;
     private int myResource;
     private IngredientsCart shoppingCart = new IngredientsCart();
 
-    public AdapterClass(Context context, int resource) {
+    public IngredientsCartFormatter(Context context, int resource) {
         super(context, resource);
         this.myContext=context;
         this.myResource=resource;
