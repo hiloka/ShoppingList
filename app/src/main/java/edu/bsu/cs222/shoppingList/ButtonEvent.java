@@ -31,7 +31,7 @@ class ButtonEvent  implements View.OnClickListener {
             amountOfItems.setText("no button");
         }
         itemsInCart.setAdapter(myAdapter.getAdapter());
-         amountOfItems.setText("you have " + myAdapter.cartSize() + " items in the cart");
+         amountOfItems.setText("you have " +String.valueOf(myAdapter.cartSize()) + " items in the cart");
     }
     public void setContext(Context input){
         tempContext=input;
