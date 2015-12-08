@@ -24,14 +24,12 @@ public class IngredientsCartFormatter extends ArrayAdapter {
         return shoppingCart.cartSize();
     }
     private String[] formatReturn(){
-        String AdapterToString=shoppingCart.returnCart().toString();
-        AdapterToString=AdapterToString.substring(1);
-        AdapterToString=AdapterToString.substring(0,AdapterToString.length()-1);
-        return AdapterToString.split(",");
+        String adapterToString=shoppingCart.returnCart().toString();
+        adapterToString=adapterToString.substring(1);
+        adapterToString=adapterToString.substring(0,adapterToString.length()-1);
+        return adapterToString.split(",");
     }
-    public ArrayAdapter mainAdapter(){
-        ArrayAdapter<String> itemsAdapter =
-                new ArrayAdapter<String>(myContext,myResource, formatReturn());
-        return itemsAdapter;
+    public ArrayAdapter getAdapter(){
+        return new ArrayAdapter<>(myContext,myResource, formatReturn());
     }
 }

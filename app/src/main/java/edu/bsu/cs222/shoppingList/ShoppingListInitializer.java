@@ -8,11 +8,11 @@ import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import cajohnson7.cs222.bsu.edu.shoppinglist.R;
 
-public class PickIngredient extends AppCompatActivity {
+public class ShoppingListInitializer extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pick_ingredient);
+        setContentView(R.layout.activity_shopping_list_initializer);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         String[] ingredients = {"pop","soda","meat","onions","milk"};

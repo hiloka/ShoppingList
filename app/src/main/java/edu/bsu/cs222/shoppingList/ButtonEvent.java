@@ -10,7 +10,6 @@ import android.widget.TextView;
 import cajohnson7.cs222.bsu.edu.shoppinglist.R;
 
 class ButtonEvent  implements View.OnClickListener {
-    private IngredientsCart shoppingCart = new IngredientsCart();
     private  RelativeLayout myLayout;
     private Context tempContext;
     private IngredientsCartFormatter myAdapter;
@@ -31,8 +30,8 @@ class ButtonEvent  implements View.OnClickListener {
         else{
             amountOfItems.setText("no button");
         }
-        itemsInCart.setAdapter(myAdapter.mainAdapter());
-         amountOfItems.setText("you have " + myAdapter.cartSize() + " items in the cart");
+        itemsInCart.setAdapter(myAdapter.getAdapter());
+         amountOfItems.setText("you have " +String.valueOf(myAdapter.cartSize()) + " items in the cart");
     }
     public void setContext(Context input){
         tempContext=input;
@@ -45,4 +44,3 @@ class ButtonEvent  implements View.OnClickListener {
         this.myLayout=input;
     }
 }
-
