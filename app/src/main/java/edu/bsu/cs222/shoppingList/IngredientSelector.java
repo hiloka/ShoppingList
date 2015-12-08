@@ -32,7 +32,7 @@ public class IngredientSelector extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                startActivity(new Intent(IngredientSelector.this, PickIngredient.class));
+                startActivity(new Intent(IngredientSelector.this, ShoppingListInitializer.class));
             }
         });
     }
