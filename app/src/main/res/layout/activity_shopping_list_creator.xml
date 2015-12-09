@@ -15,7 +15,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_shopping_list_initializer" />
+    <include layout="@layout/content_shopping_list_creator" />
 
 
 

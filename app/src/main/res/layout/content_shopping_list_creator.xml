@@ -24,17 +24,17 @@
             android:text="@string/NoIngredientsSelected"
             android:id="@+id/textView4"
             android:layout_gravity="center_horizontal|bottom"
-            android:layout_toEndOf="@+id/button" />
+            android:layout_toEndOf="@+id/addButton" />
 
         <ListView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/listView2"
             android:layout_alignEnd="@+id/textView4"
-            android:layout_toEndOf="@+id/button"
+            android:layout_toEndOf="@+id/addButton"
             android:layout_below="@+id/spinner"
-            android:layout_alignLeft="@+id/button"
-            android:layout_alignStart="@+id/button" />
+            android:layout_alignLeft="@+id/addButton"
+            android:layout_alignStart="@+id/addButton" />
 
         <Button
             android:layout_width="wrap_content"
@@ -42,14 +42,14 @@
             android:text="@string/Submit"
             android:id="@+id/button2"
             android:layout_gravity="center_horizontal|bottom"
-            android:layout_above="@+id/button4"
+            android:layout_above="@+id/removeButton"
             android:layout_centerHorizontal="true" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Add_To_Cart"
-            android:id="@+id/button"
+            android:id="@+id/addButton"
             android:layout_gravity="start|bottom"
 
             android:layout_alignParentBottom="true"
@@ -59,7 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/removeLastItem"
-            android:id="@+id/button4"
+            android:id="@+id/removeButton"
             android:layout_gravity="end|bottom"
 
             android:visibility="visible"

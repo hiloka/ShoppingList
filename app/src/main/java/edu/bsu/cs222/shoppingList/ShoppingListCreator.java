@@ -8,11 +8,11 @@ import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import cajohnson7.cs222.bsu.edu.shoppinglist.R;
 
-public class ShoppingListInitializer extends AppCompatActivity {
+public class ShoppingListCreator extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_shopping_list_initializer);
+        setContentView(R.layout.activity_shopping_list_creator);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         String[] ingredients = {"pop","soda","meat","onions","milk"};
@@ -24,12 +24,12 @@ public class ShoppingListInitializer extends AppCompatActivity {
                 (Spinner)findViewById(R.id.spinner);
         ingredientSpinner.setAdapter(stringArrayAdapter);
         RelativeLayout myLayout= (RelativeLayout) findViewById(R.id.myFrame);
-        ButtonEvent buttonEventListener = new ButtonEvent();
+        ButtonListener buttonEventListener = new ButtonListener();
         buttonEventListener.setContext(this);
         buttonEventListener.setLayOut(myLayout);
-        Button addToCartButton = (Button) findViewById(R.id.button4);
+        Button addToCartButton = (Button) findViewById(R.id.removeButton);
         addToCartButton.setOnClickListener(buttonEventListener);
-        Button removeFromCartButton = (Button) findViewById(R.id.button);
+        Button removeFromCartButton = (Button) findViewById(R.id.addButton);
         removeFromCartButton.setOnClickListener(buttonEventListener);
     }
 }
