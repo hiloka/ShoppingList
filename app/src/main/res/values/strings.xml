@@ -9,8 +9,4 @@
     <string name="Go_Back">Restart</string>
     <string name="removeLastItem">Remove item</string>
     <string name="NoIngredientsSelected">No ingredients have been selected</string>
-    <string name="ingredientsCatergory">pop</string>
-    <string name="no_button">No Button</string>
-    <string name="you_have">You have </string>
-    <string name="items_in_the_cart">items in the cart</string>
 </resources>

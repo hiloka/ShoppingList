@@ -24,8 +24,7 @@ public class ShoppingListCreator extends AppCompatActivity {
                 (Spinner)findViewById(R.id.spinner);
         ingredientSpinner.setAdapter(stringArrayAdapter);
         RelativeLayout myLayout= (RelativeLayout) findViewById(R.id.myFrame);
-        ButtonListener buttonEventListener = new ButtonListener();
-        buttonEventListener.setContext(this);
+        ButtonListener buttonEventListener = new ButtonListener(this);
         buttonEventListener.setLayOut(myLayout);
         Button addToCartButton = (Button) findViewById(R.id.removeButton);
         addToCartButton.setOnClickListener(buttonEventListener);

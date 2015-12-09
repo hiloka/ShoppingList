@@ -13,9 +13,11 @@ class ButtonListener implements View.OnClickListener {
     private  RelativeLayout sourceLayout;
     private Context sourceContext;
     private IngredientsCartFormatter shoppingCartAdapter;
-    private Integer addIdNumber;
-    private Integer removeIdNumber;
-    private Integer viewIdNumber;
+
+    public ButtonListener(Context input){
+        this.sourceContext=input;
+        setUpAdapter();
+    }
     @Override
     public void onClick(View v) {
         Spinner ingredientsSpinner = (Spinner) this.sourceLayout.findViewById(R.id.spinner);
@@ -24,12 +26,13 @@ class ButtonListener implements View.OnClickListener {
                 (ListView)this.sourceLayout.findViewById(R.id.listView2);
         TextView amountOfItems =
                 (TextView)this.sourceLayout.findViewById(R.id.textView4);
-        addIdNumber=R.id.addButton;
-        removeIdNumber=R.id.removeButton;
-        if(v.getId()==R.id.addButton){
+        Integer addIdNumber = R.id.addButton;
+        Integer removeIdNumber = R.id.removeButton;
+        Integer viewIdNumber = v.getId();
+        if(viewIdNumber.equals(addIdNumber)){
             shoppingCartAdapter.addItemToCart(getSpinnerValue);
         }
-        else if (v.getId()==R.id.removeButton){
+        else if (viewIdNumber.equals(removeIdNumber)){
             shoppingCartAdapter.removeItemFromCart(getSpinnerValue);
         }
         else{
@@ -37,10 +40,6 @@ class ButtonListener implements View.OnClickListener {
         }
         itemsInCart.setAdapter(shoppingCartAdapter.getAdapter());
          amountOfItems.setText(String.format("%s%s%s", " you have ", shoppingCartAdapter.getCartSize(), " items in the cart "));
-    }
-    public void setContext(Context input){
-        sourceContext =input;
-        setUpAdapter();
     }
     private void setUpAdapter(){
         this.shoppingCartAdapter = new IngredientsCartFormatter(sourceContext,android.R.layout.simple_list_item_1);

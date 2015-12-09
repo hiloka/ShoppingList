@@ -24,7 +24,6 @@ public class IngredientsCartTest {
         cartOfIngredients.addItemToCart("pop");
         cartOfIngredients.addItemToCart("pop");
     }
-    ///
     @Test
     public void testEmptyIngredientsCart() throws Exception{
         Assert.assertEquals(cartOfIngredients.returnCart().isEmpty(), true);
@@ -37,6 +36,10 @@ public class IngredientsCartTest {
     public void testAddToIngredientsCart() throws Exception{
         cartOfIngredients.addItemToCart("pop");
         Assert.assertEquals(cartOfIngredients.returnCart().contains("pop"),true);
+    }
+    public void testAddToIngredientsCartAmount() throws Exception{
+        cartOfIngredients.addItemToCart("pop");
+        Assert.assertEquals(cartOfIngredients.returnCart().count("pop"),1);
     }
     @Test
     public void testAddMultipleIngredientsToCart() throws Exception{
@@ -76,5 +79,4 @@ public class IngredientsCartTest {
         addDifferentAmountOfDifferentIngredients();
         Assert.assertEquals(cartOfIngredients.returnCart().size(),3);
     }
-
 }
