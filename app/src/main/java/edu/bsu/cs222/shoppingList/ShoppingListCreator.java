@@ -14,17 +14,18 @@ public class ShoppingListCreator extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shopping_list_creator);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        RelativeLayout myLayout= (RelativeLayout) findViewById(R.id.myFrame);
+        ButtonListener buttonEventListener = new ButtonListener(this);
         setSupportActionBar(toolbar);
-        String[] ingredients = {"pop","soda","meat","onions","milk"};
-        ArrayAdapter<String> stringArrayAdapter=
-                new ArrayAdapter<>(this,
-                        android.R.layout.simple_spinner_dropdown_item,
-                        ingredients);
+        String[] ingredients = {"pop","soda","meat","onions","milk","spaghetti"};
+        //ArrayAdapter<String> stringArrayAdapter=
+          //      new ArrayAdapter<>(this,
+            //            android.R.layout.simple_spinner_dropdown_item,
+              //          ingredients);
+        ArrayAdapter stringArrayAdapter=ArrayAdapter.createFromResource(this,R.array.IngredientsSpinner,android.R.layout.simple_spinner_item);
         Spinner ingredientSpinner=
                 (Spinner)findViewById(R.id.spinner);
         ingredientSpinner.setAdapter(stringArrayAdapter);
-        RelativeLayout myLayout= (RelativeLayout) findViewById(R.id.myFrame);
-        ButtonListener buttonEventListener = new ButtonListener(this);
         buttonEventListener.setLayOut(myLayout);
         Button addToCartButton = (Button) findViewById(R.id.removeButton);
         addToCartButton.setOnClickListener(buttonEventListener);

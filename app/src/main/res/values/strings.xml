@@ -9,4 +9,12 @@
     <string name="Go_Back">Restart</string>
     <string name="removeLastItem">Remove item</string>
     <string name="NoIngredientsSelected">No ingredients have been selected</string>
+    <string-array name="IngredientsSpinner">
+        <item>Pop</item>
+        <item>Soda</item>
+        <item>Meat</item>
+        <item>Onions</item>
+        <item>Milk</item>
+        <item>Spaghetti</item>
+    </string-array>
 </resources>
