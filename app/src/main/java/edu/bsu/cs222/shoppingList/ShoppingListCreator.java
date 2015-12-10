@@ -17,11 +17,6 @@ public class ShoppingListCreator extends AppCompatActivity {
         RelativeLayout myLayout= (RelativeLayout) findViewById(R.id.myFrame);
         ButtonListener buttonEventListener = new ButtonListener(this);
         setSupportActionBar(toolbar);
-        String[] ingredients = {"pop","soda","meat","onions","milk","spaghetti"};
-        //ArrayAdapter<String> stringArrayAdapter=
-          //      new ArrayAdapter<>(this,
-            //            android.R.layout.simple_spinner_dropdown_item,
-              //          ingredients);
         ArrayAdapter stringArrayAdapter=ArrayAdapter.createFromResource(this,R.array.IngredientsSpinner,android.R.layout.simple_spinner_item);
         Spinner ingredientSpinner=
                 (Spinner)findViewById(R.id.spinner);
