@@ -14,13 +14,13 @@ public class IngredientsCartFormatter extends ArrayAdapter {
         this.myContext=context;
         this.myResource=resource;
     }
-    public void add(String input){
+    public void addItemToCart(String input){
         shoppingCart.addItemToCart(input);
     }
-    public void remove(String input){
+    public void removeItemFromCart(String input){
         shoppingCart.removeItemFromCart(input);
     }
-    public int cartSize(){
+    public int getCartSize(){
         return shoppingCart.cartSize();
     }
     private String[] formatReturn(){

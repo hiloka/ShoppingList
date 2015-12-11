@@ -3,14 +3,22 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_second">SelectedIngredients</string>
     <string name="Select_Your_Ingredients">Select Your Ingredients</string>
-    <string name="Add_To_Cart">add to cart</string>
+    <string name="Add_To_Cart">Add item</string>
     <string name="Submit">Submit</string>
     <string name="Hello">Hello</string>
     <string name="Go_Back">Restart</string>
-    <string name="removeLastItem">Remove last item</string>
+    <string name="removeLastItem">Remove item</string>
     <string name="NoIngredientsSelected">No ingredients have been selected</string>
-    <string name="ingredientsCatergory">pop</string>
-
-
-
+    <string-array name="IngredientsSpinner">
+        <item>Pop</item>
+        <item>Soda</item>
+        <item>Meat</item>
+        <item>Onions</item>
+        <item>Milk</item>
+        <item>Spaghetti</item>
+        <item>Chocolate</item>
+        <item>More chocolate</item>
+        <item>Even more chocolate</item>
+    </string-array>
+    <string name="title_activity_sss">sss</string>
 </resources>
