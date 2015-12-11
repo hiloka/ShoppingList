@@ -1,32 +1,21 @@
 package edu.bsu.cs222.shoppingList;
-
-import java.util.ArrayList;
-
+import com.google.common.collect.HashMultiset;
+import com.google.common.collect.Multiset;
 public class IngredientsCart {
-    private ArrayList ingredientsArray = new ArrayList();
+    Multiset<String> ingredientsMultiset = HashMultiset.create();
 
     public void addItemToCart(String input){
-        this.ingredientsArray.add(input);
+        ingredientsMultiset.add(input);
     }
-    public void removeItemFromCart(){
-        if(ingredientsArray.size()>0){
-            Integer ArraySize=this.ingredientsArray.size();
-            this.ingredientsArray.remove(ArraySize-1);
+    public void removeItemFromCart(String input){
+            ingredientsMultiset.remove(input);
         }
-    }
     public Integer cartSize(){
-        return this.ingredientsArray.size();
+        return this.ingredientsMultiset.size();
     }
-
-    public String returnedCart(){
-        String ingredientsInCart ="";
-        Integer i = 0;
-        Integer s=this.ingredientsArray.size();
-        while(i < s){
-            ingredientsInCart = ingredientsInCart +this.ingredientsArray.get(i).toString();
-            ingredientsInCart = ingredientsInCart +System.getProperty("line.separator");
-            i++;
-        }
-        return ingredientsInCart;
+    public Multiset returnCart(){
+        return ingredientsMultiset;
     }
 }
+
+
